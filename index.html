@@ -77,6 +77,7 @@ ul.drops li::before{content:"";position:absolute;left:.2rem;top:.5em;width:.7rem
 .person a:hover{text-decoration:underline}
 
 figure{margin:0}
+.logo-img,.shots img{height:auto}
 figcaption{margin-top:.7rem;color:var(--mute);font-size:.95rem}
 .logo-img{display:block;width:100%;max-width:720px;margin:0 auto;border-radius:20px;border:1px solid var(--line)}
 .shots{display:grid;gap:2.5rem;margin-top:2rem}
@@ -85,6 +86,10 @@ figcaption{margin-top:.7rem;color:var(--mute);font-size:.95rem}
 .shots figcaption{text-align:center}
 footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
 
+@media (min-width:900px){
+  .bar nav{flex-wrap:wrap;justify-content:flex-end;overflow:visible}
+  html{scroll-padding-top:120px}
+}
 @media (max-width:760px){
   .split,.apps{grid-template-columns:1fr}
   section{padding:3.2rem 1.2rem}
@@ -139,7 +144,7 @@ footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9
 <section id="logotipo"><div class="wrap">
   <h2>Logotipo</h2>
   <!-- Cambia la ruta de src por la de tu imagen -->
-  <img class="logo-img" src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583460580692109/b279b84a-292f-45a0-90e1-0725d40f45e0.png?ex=6af79f55&is=6af64dd5&hm=d43b96353684170dd62aa879657fa2b38e156b4f2c4d4c332688a5ce9f3e0523&" alt="Logotipo de Hydrotails: el nombre sobre una ola de agua azul">
+  <img width="1672" height="941" class="logo-img" src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583460580692109/b279b84a-292f-45a0-90e1-0725d40f45e0.png?ex=6af79f55&is=6af64dd5&hm=d43b96353684170dd62aa879657fa2b38e156b4f2c4d4c332688a5ce9f3e0523&" alt="Logotipo de Hydrotails: el nombre sobre una ola de agua azul">
 </div></section>
 
 <section id="servicio"><div class="wrap">
@@ -181,15 +186,15 @@ footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9
   <div class="shots">
     <!-- Cambia la ruta de src de cada imagen por la tuya -->
     <figure>
-      <img src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583503404531712/8db78f29-ea3e-443d-b55c-c9148f0a481b.png?ex=6af79f5f&is=6af64ddf&hm=29b457c0fb175d567e61259318178656d483dc7d45194816500f12d3e2144a34&" alt="Pantalla de inicio de la aplicación de Hydrotails para PC" loading="lazy">
+      <img width="1536" height="1024" src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583503404531712/8db78f29-ea3e-443d-b55c-c9148f0a481b.png?ex=6af79f5f&is=6af64ddf&hm=29b457c0fb175d567e61259318178656d483dc7d45194816500f12d3e2144a34&" alt="Pantalla de inicio de la aplicación de Hydrotails para PC">
       <figcaption>Aplicación PC</figcaption>
     </figure>
     <figure>
-      <img src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583512627548170/133e4131-562a-480f-80b8-9daa01d1bd74.png?ex=6af79f61&is=6af64de1&hm=ee5166c207ee42bc4fc2701d7472cde389d5d4881a21619a1c174f86962e4f8f&" alt="Panel de gestión de clientes de Hydrotails" loading="lazy">
+      <img width="1672" height="941" src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583512627548170/133e4131-562a-480f-80b8-9daa01d1bd74.png?ex=6af79f61&is=6af64de1&hm=ee5166c207ee42bc4fc2701d7472cde389d5d4881a21619a1c174f86962e4f8f&" alt="Panel de gestión de clientes de Hydrotails">
       <figcaption>Panel de gestión</figcaption>
     </figure>
     <figure class="movil">
-      <img src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583532651413504/e84d61fa-c11b-4d91-a233-bf87a9743365.png?ex=6af79f66&is=6af64de6&hm=665f658e693b9e4e8117214b5c4e03e35d8f86def89f71f173769a5e54298bf6&" alt="Pantalla de inicio de la aplicación móvil de Hydrotails" loading="lazy">
+      <img width="852" height="1846" src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583532651413504/e84d61fa-c11b-4d91-a233-bf87a9743365.png?ex=6af79f66&is=6af64de6&hm=665f658e693b9e4e8117214b5c4e03e35d8f86def89f71f173769a5e54298bf6&" alt="Pantalla de inicio de la aplicación móvil de Hydrotails">
       <figcaption>Aplicación móvil</figcaption>
     </figure>
   </div>
@@ -260,14 +265,15 @@ footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9
 <script>
 // Marca en la barra la sección que se está viendo
 const links=[...document.querySelectorAll('.bar nav a')];
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){
-      links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));
-    }
-  });
-},{rootMargin:'-45% 0px -50% 0px'});
-document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+const secs=[...document.querySelectorAll('section[id]')];
+function mark(){
+  let cur=null;
+  secs.forEach(s=>{ if(s.getBoundingClientRect().top<=innerHeight*0.35) cur=s; });
+  links.forEach(l=>l.classList.toggle('on',!!cur&&l.getAttribute('href')==='#'+cur.id));
+}
+addEventListener('scroll',mark,{passive:true});
+addEventListener('load',mark);
+mark();
 </script>
 </body>
 </html>
