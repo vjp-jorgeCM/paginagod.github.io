@@ -76,6 +76,13 @@ ul.drops li::before{content:"";position:absolute;left:.2rem;top:.5em;width:.7rem
 .person a{color:var(--aqua);text-decoration:none;word-break:break-all}
 .person a:hover{text-decoration:underline}
 
+figure{margin:0}
+figcaption{margin-top:.7rem;color:var(--mute);font-size:.95rem}
+.logo-img{display:block;width:100%;max-width:720px;margin:0 auto;border-radius:20px;border:1px solid var(--line)}
+.shots{display:grid;gap:2.5rem;margin-top:2rem}
+.shots img{display:block;width:100%;border-radius:16px;border:1px solid var(--line)}
+.shots .movil{max-width:320px;margin:0 auto;text-align:center}
+.shots figcaption{text-align:center}
 footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
 
 @media (max-width:760px){
@@ -93,10 +100,12 @@ footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9
 <header class="bar">
   <a class="brand" href="#inicio">Hydro<span>tails</span></a>
   <nav aria-label="Secciones">
+    <a href="#logotipo">Logotipo</a>
     <a href="#servicio">Servicio</a>
     <a href="#explicacion">Explicación</a>
     <a href="#publico">Público</a>
     <a href="#aplicacion">Aplicación</a>
+    <a href="#concepto">Concepto de la app</a>
     <a href="#funciones">Funcionalidades</a>
     <a href="#usuario">Para el usuario</a>
     <a href="#perfil">Perfil</a>
@@ -112,7 +121,9 @@ footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9
   <p class="slogan">Tu coche brilla, nosotros hacemos la magia</p>
   <div class="go">
     <a class="btn main" href="#servicio">Nuestro servicio</a>
+    <a class="btn" href="#logotipo">Logotipo</a>
     <a class="btn" href="#aplicacion">La aplicación</a>
+    <a class="btn" href="#concepto">Concepto de la app</a>
     <a class="btn" href="#diferencia">Qué nos hace diferentes</a>
     <a class="btn" href="#publico">Público</a>
     <a class="btn" href="#funciones">Funcionalidades</a>
@@ -124,6 +135,12 @@ footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9
   <svg class="waves b" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true"><path fill="#1f7bff" d="M0 70c120-50 240-50 360 0s240 50 360 0 240-50 360 0 240 50 360 0V150H0z"/></svg>
   <svg class="waves" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true"><path fill="#0a1630" d="M0 60c120 40 240 40 360 0s240-40 360 0 240 40 360 0 240-40 360 0V130H0z"/></svg>
 </div>
+
+<section id="logotipo"><div class="wrap">
+  <h2>Logotipo</h2>
+  <!-- Cambia la ruta de src por la de tu imagen -->
+  <img class="logo-img" src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583460580692109/b279b84a-292f-45a0-90e1-0725d40f45e0.png?ex=6af79f55&is=6af64dd5&hm=d43b96353684170dd62aa879657fa2b38e156b4f2c4d4c332688a5ce9f3e0523&" alt="Logotipo de Hydrotails: el nombre sobre una ola de agua azul">
+</div></section>
 
 <section id="servicio"><div class="wrap">
   <h2>Breve descripción del servicio</h2>
@@ -155,6 +172,26 @@ footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9
     <div><h3>Aplicación PC</h3><p>Reserva servicios, consulta la tienda y contacta con nosotros desde el ordenador.</p></div>
     <div><h3>Panel de gestión</h3><p>Clientes, vehículos, reservas, servicios y facturas en un solo lugar para el equipo.</p></div>
     <div><h3>Aplicación móvil</h3><p>Reserva tu cita, mira promociones y gestiona tus reservas desde el móvil.</p></div>
+  </div>
+</div></section>
+
+<section id="concepto"><div class="wrap">
+  <h2>Concepto de la app</h2>
+  <p class="lead">Así imaginamos Hydrotails en el ordenador, en el panel de gestión del equipo y en el móvil.</p>
+  <div class="shots">
+    <!-- Cambia la ruta de src de cada imagen por la tuya -->
+    <figure>
+      <img src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583503404531712/8db78f29-ea3e-443d-b55c-c9148f0a481b.png?ex=6af79f5f&is=6af64ddf&hm=29b457c0fb175d567e61259318178656d483dc7d45194816500f12d3e2144a34&" alt="Pantalla de inicio de la aplicación de Hydrotails para PC" loading="lazy">
+      <figcaption>Aplicación PC</figcaption>
+    </figure>
+    <figure>
+      <img src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583512627548170/133e4131-562a-480f-80b8-9daa01d1bd74.png?ex=6af79f61&is=6af64de1&hm=ee5166c207ee42bc4fc2701d7472cde389d5d4881a21619a1c174f86962e4f8f&" alt="Panel de gestión de clientes de Hydrotails" loading="lazy">
+      <figcaption>Panel de gestión</figcaption>
+    </figure>
+    <figure class="movil">
+      <img src="https://cdn.discordapp.com/attachments/1420770938424922172/1570583532651413504/e84d61fa-c11b-4d91-a233-bf87a9743365.png?ex=6af79f66&is=6af64de6&hm=665f658e693b9e4e8117214b5c4e03e35d8f86def89f71f173769a5e54298bf6&" alt="Pantalla de inicio de la aplicación móvil de Hydrotails" loading="lazy">
+      <figcaption>Aplicación móvil</figcaption>
+    </figure>
   </div>
 </div></section>
 
