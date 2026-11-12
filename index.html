@@ -1,11 +1,236 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi página</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hydrotails | Limpieza premium de vehículos</title>
+<meta name="description" content="Tu coche brilla, nosotros hacemos la magia. Limpieza y detallado premium de vehículos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#050b1a; --navy:#0a1630; --panel:#0d1f42; --line:#17356b;
+  --blue:#1f7bff; --aqua:#3fd0ff; --foam:#dff1ff; --mute:#9db4d6;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--deep);color:var(--foam);font:400 1.05rem/1.7 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--aqua);outline-offset:3px}
+
+/* Barra superior */
+.bar{position:sticky;top:0;z-index:10;background:rgba(5,11,26,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:1rem;padding:.6rem 1.2rem}
+.brand{font:800 1.3rem 'Bricolage Grotesque',sans-serif;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--aqua)}
+.bar nav{display:flex;gap:.4rem;overflow-x:auto;scrollbar-width:none;flex:1}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{white-space:nowrap;text-decoration:none;font-size:.9rem;font-weight:500;color:var(--mute);padding:.4rem .8rem;border-radius:99px;border:1px solid transparent;transition:.2s}
+.bar nav a:hover,.bar nav a.on{color:#fff;border-color:var(--blue);background:rgba(31,123,255,.18)}
+
+/* Portada */
+.hero{position:relative;overflow:hidden;text-align:center;padding:6rem 1.2rem 11rem;background:
+  radial-gradient(60% 55% at 50% 30%,rgba(31,123,255,.35),transparent 70%),var(--deep)}
+.hero h1{font-size:clamp(3.4rem,13vw,9rem);font-weight:800;letter-spacing:-.04em;
+  background:linear-gradient(180deg,#fff 20%,var(--aqua));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .slogan{font-size:clamp(1.15rem,3vw,1.6rem);color:var(--foam);margin:.8rem auto 2.2rem;max-width:30ch}
+.hero .by{color:var(--mute);font-size:.95rem;margin-top:2rem}
+.go{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;max-width:860px;margin:0 auto}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:.7rem 1.3rem;border-radius:12px;border:1px solid var(--line);background:rgba(13,31,66,.7);transition:.2s}
+.btn:hover{background:var(--blue);border-color:var(--aqua);transform:translateY(-2px)}
+.btn.main{background:var(--blue);border-color:var(--aqua)}
+.waves{position:absolute;left:0;bottom:-1px;width:200%;height:130px;animation:drift 14s linear infinite}
+.waves.b{opacity:.5;animation-duration:22s;animation-direction:reverse;height:150px}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* Secciones */
+section{padding:4.5rem 1.2rem}
+section:nth-of-type(even){background:var(--navy)}
+.wrap{max-width:980px;margin:0 auto}
+h2{font-size:clamp(1.9rem,5vw,3rem);margin-bottom:1.4rem;letter-spacing:-.02em}
+p+p{margin-top:1rem}
+.lead{font-size:1.2rem;max-width:62ch}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.quote{font:700 clamp(1.5rem,4vw,2.4rem)/1.2 'Bricolage Grotesque',sans-serif;color:var(--aqua);border-left:4px solid var(--blue);padding-left:1.2rem}
+
+ul.drops{list-style:none;padding:0;display:grid;gap:.8rem}
+ul.drops li{position:relative;padding-left:2rem}
+ul.drops li::before{content:"";position:absolute;left:.2rem;top:.5em;width:.7rem;height:.7rem;background:var(--aqua);border-radius:0 50% 50% 50%;transform:rotate(45deg)}
+
+.services{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.services span{padding:.4rem 1rem;border-radius:99px;background:var(--panel);border:1px solid var(--line);font-size:.95rem}
+
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.apps div{padding:1.2rem;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
+.apps h3{font-size:1.15rem;margin-bottom:.3rem;color:var(--aqua)}
+.apps p{font-size:.95rem;color:var(--mute)}
+
+.diff{background:linear-gradient(135deg,var(--blue),#0b3d99);border-radius:24px;padding:2.2rem}
+.diff ul.drops li::before{background:#fff}
+
+.people{display:grid;gap:1rem}
+.person{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem 1.5rem;padding:1.1rem 1.4rem;border-radius:16px;background:var(--panel);border:1px solid var(--line)}
+.person strong{font:700 1.15rem 'Bricolage Grotesque',sans-serif}
+.person a{color:var(--aqua);text-decoration:none;word-break:break-all}
+.person a:hover{text-decoration:underline}
+
+footer{padding:2rem 1.2rem 3rem;text-align:center;color:var(--mute);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  .split,.apps{grid-template-columns:1fr}
+  section{padding:3.2rem 1.2rem}
+  .bar{padding:.5rem .8rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .waves{animation:none} html{scroll-behavior:auto} .btn{transition:none}
+}
+</style>
 </head>
 <body>
-  <h1>¡Hola mundo!</h1>
-  <p>Mi primera página en GitHub Pages.</p>
+
+<header class="bar">
+  <a class="brand" href="#inicio">Hydro<span>tails</span></a>
+  <nav aria-label="Secciones">
+    <a href="#servicio">Servicio</a>
+    <a href="#explicacion">Explicación</a>
+    <a href="#publico">Público</a>
+    <a href="#aplicacion">Aplicación</a>
+    <a href="#funciones">Funcionalidades</a>
+    <a href="#usuario">Para el usuario</a>
+    <a href="#perfil">Perfil</a>
+    <a href="#necesidades">Necesidades</a>
+    <a href="#diferencia">Qué nos hace diferentes</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+<div class="hero" id="inicio">
+  <h1>Hydrotails</h1>
+  <p class="slogan">Tu coche brilla, nosotros hacemos la magia</p>
+  <div class="go">
+    <a class="btn main" href="#servicio">Nuestro servicio</a>
+    <a class="btn" href="#aplicacion">La aplicación</a>
+    <a class="btn" href="#diferencia">Qué nos hace diferentes</a>
+    <a class="btn" href="#publico">Público</a>
+    <a class="btn" href="#funciones">Funcionalidades</a>
+    <a class="btn" href="#perfil">Usuarios</a>
+    <a class="btn" href="#contacto">Contacto</a>
+  </div>
+  <p class="by">Jorge Castiñeira Monroy, Alejandro Miranda Cuadrado y Sergio López Hernández</p>
+
+  <svg class="waves b" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true"><path fill="#1f7bff" d="M0 70c120-50 240-50 360 0s240 50 360 0 240-50 360 0 240 50 360 0V150H0z"/></svg>
+  <svg class="waves" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true"><path fill="#0a1630" d="M0 60c120 40 240 40 360 0s240-40 360 0 240 40 360 0 240-40 360 0V130H0z"/></svg>
+</div>
+
+<section id="servicio"><div class="wrap">
+  <h2>Breve descripción del servicio</h2>
+  <p class="lead">Hydrotails es un proyecto empresarial dedicado a la limpieza, el cuidado y el mantenimiento estético de vehículos. Nuestro objetivo es ofrecer un servicio de limpieza de calidad que permita a los clientes mantener sus coches en las mejores condiciones, tanto por dentro como por fuera.</p>
+  <p>Entre nuestros principales servicios se encuentran:</p>
+  <div class="services">
+    <span>Lavado exterior</span><span>Limpieza interior</span><span>Limpieza de tapicerías</span><span>Cuidado de llantas y neumáticos</span><span>Detallado de vehículos</span>
+  </div>
+</div></section>
+
+<section id="explicacion"><div class="wrap split">
+  <div>
+    <h2>Explicación</h2>
+    <p class="quote">No somos una empresa de lavado cualquiera, somos una premium.</p>
+  </div>
+  <p>Este sector se ve muy visto ya, pero nosotros queremos proporcionar una limpieza más detallada y profunda para clientes que quieran que su vehículo brille como el sol. Por eso creamos nuestra empresa: una marca premium que convierte un coche polvoso y feo en un coche bonito y resplandeciente.</p>
+</div></section>
+
+<section id="publico"><div class="wrap">
+  <h2>Público al que va dirigido</h2>
+  <p class="lead">Nuestro servicio es más detallado y exhaustivo que un lavado simple, y por eso cuesta más que un lavado exterior. Nuestro público será, por tanto, más selecto.</p>
+</div></section>
+
+<section id="aplicacion"><div class="wrap">
+  <h2>Aplicación</h2>
+  <p class="lead">Contamos con una aplicación específica donde el usuario indica el tipo de limpieza que quiere, qué partes del coche y cómo lo quiere.</p>
+  <p>Esa información llega a nuestra base de datos, donde aparece como un fichero de Excel y nuestros trabajadores pueden comprobar lo que piden los clientes. Además, el cliente puede modificar su petición si algo no le agrada.</p>
+  <div class="apps">
+    <div><h3>Aplicación PC</h3><p>Reserva servicios, consulta la tienda y contacta con nosotros desde el ordenador.</p></div>
+    <div><h3>Panel de gestión</h3><p>Clientes, vehículos, reservas, servicios y facturas en un solo lugar para el equipo.</p></div>
+    <div><h3>Aplicación móvil</h3><p>Reserva tu cita, mira promociones y gestiona tus reservas desde el móvil.</p></div>
+  </div>
+</div></section>
+
+<section id="funciones"><div class="wrap">
+  <h2>Funcionalidades más importantes</h2>
+  <ul class="drops">
+    <li>El usuario puede pedir nuestros servicios desde su móvil.</li>
+    <li>El manejo de datos es más preciso y sencillo.</li>
+    <li>Los datos se pueden modificar con mayor velocidad.</li>
+    <li>Contacto con el cliente de forma telemática.</li>
+  </ul>
+</div></section>
+
+<section id="usuario"><div class="wrap">
+  <h2>Qué proporciona al usuario</h2>
+  <ul class="drops">
+    <li>Mejor contacto con la empresa.</li>
+    <li>Posibilidad de modificar los datos de su pedido.</li>
+    <li>Contratar los servicios de manera telemática, sin tener que moverse.</li>
+  </ul>
+</div></section>
+
+<section id="perfil"><div class="wrap">
+  <h2>Perfil de usuarios potenciales</h2>
+  <ul class="drops">
+    <li>Personas con poder adquisitivo por encima de la media.</li>
+    <li>Personas con coches que necesitan mucho mantenimiento.</li>
+    <li>Personas con coches difíciles de limpiar y de mantener limpios.</li>
+  </ul>
+</div></section>
+
+<section id="necesidades"><div class="wrap">
+  <h2>Necesidades de los usuarios</h2>
+  <ul class="drops">
+    <li>Mejor lavado y mantenimiento de su coche.</li>
+    <li>Mayor facilidad para comunicarse con la empresa.</li>
+    <li>Posibles descuentos para ahorrar dinero.</li>
+  </ul>
+</div></section>
+
+<section id="diferencia"><div class="wrap">
+  <div class="diff">
+    <h2>Qué nos hace diferentes</h2>
+    <ul class="drops">
+      <li>Mayor profesionalidad.</li>
+      <li>Rapidez al responder cualquier duda.</li>
+      <li>Posibilidad de desplazarnos para realizar nuestros servicios.</li>
+      <li>Buena gestión y facilidad en todos nuestros servicios.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="contacto"><div class="wrap">
+  <h2>Quiénes somos y cómo contactarnos</h2>
+  <p class="lead" style="margin-bottom:1.6rem">El poder del agua, el brillo de tu coche.</p>
+  <div class="people">
+    <div class="person"><strong>Jorge Castiñeira Monroy</strong><a href="mailto:jorgecm.hydrotails@gmail.com">jorgecm.hydrotails@gmail.com</a></div>
+    <div class="person"><strong>Alejandro Miranda Cuadrado</strong><a href="mailto:alejandromc.hydrotails@gmail.com">alejandromc.hydrotails@gmail.com</a></div>
+    <div class="person"><strong>Sergio López Hernández</strong><a href="mailto:sergiolh.hydrotails@gmail.com">sergiolh.hydrotails@gmail.com</a></div>
+  </div>
+</div></section>
+</main>
+
+<footer>Hydrotails &middot; Tu coche en las mejores manos</footer>
+
+<script>
+// Marca en la barra la sección que se está viendo
+const links=[...document.querySelectorAll('.bar nav a')];
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+</script>
 </body>
-</html
+</html>
